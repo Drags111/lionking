@@ -13,9 +13,11 @@ uses
 const
   libSmart = 'smart';
 
-procedure std_setup (ServerURL, SecondParam: PChar; sizeX, sizeY: Integer; SomeStr: PChar); stdcall; external libSmart;
+procedure smart_setup (ServerURL, SecondParam: PChar; sizeX, sizeY: Integer;
+    SomeStr: PChar); stdcall; external libSmart name 'std_setup';
 
-procedure std_getmousepos (var x, y: integer); stdcall; external libSmart;
+procedure smart_getmousepos (var x, y: integer); stdcall; external libSmart
+    name 'std_getmousepos';
 
 { Add stuff here that you want other units to see }
 

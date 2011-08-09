@@ -29,7 +29,7 @@ type
 
 procedure LoadSmart;
 begin
-  std_setup('http://world19.runescape.com/', 'plugin.js?param=o0,a1,m0', 765, 503, 's');
+  smart_setup('http://world19.runescape.com/', 'plugin.js?param=o0,a1,m0', 765, 503, 's');
 end;
 
 { TLionKing }
