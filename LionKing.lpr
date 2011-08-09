@@ -6,13 +6,13 @@ uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
-  Classes, SysUtils, CustApp
-  { you can add units after this };
+  Classes, SysUtils, CustApp, dynlibs,
+  { you can add units after this }
 
-const
-  libSmart = 'smart';
+  smartfunc  // this includes the smart functions
 
-procedure std_setup (ServerURL, SecondParam: PChar; sizeX, sizeY: Integer; SomeStr: PChar); cdecl; external libSmart;
+  ;
+
 
 type
 
@@ -56,7 +56,20 @@ begin
   { add your program here }
   Writeln('Whatup world?');
   LoadSmart;
+
+
   sleep(100000);
+
+
+  { You probably want something like
+    while true do
+    begin
+      some_script_function
+    end;
+
+    Getting past this point will kill smart. (it's the end of the program, so
+    smart is freed)
+  }
 
   // stop program loop
   Terminate;
