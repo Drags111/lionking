@@ -10,32 +10,32 @@ uses
 const
   libSmart = 'smart';
 
-procedure SmartSetup(root, params: string; width, height: Integer; initseq: string); stdcall; external libSmart name 'std_setup';
+procedure SmartSetup(root, params: PChar; width, height: LongInt; initseq: PChar); stdcall; external libSmart name 'std_setup';
 procedure SmartSetJVMPath(path: string); stdcall; external libSmart name 'std_setJVMPath';
 {$IFDEF WINDOWS}
-function SmartGetDC: integer; stdcall; external libSmart name 'std_getImageHDC';
-function SmartGetDebugDC: integer; stdcall; external libSmart name 'std_getDebugHDC';
+function SmartGetDC(): LongInt; stdcall; external libSmart name 'std_getImageHDC';
+function SmartGetDebugDC(): LongInt; stdcall; external libSmart name 'std_getDebugHDC';
 {$ENDIF}
-function SmartImageArray(): integer; stdcall; external libSmart name 'std_getImageArray';
-function SmartDebugArray(): integer; stdcall; external libSmart name 'std_getDebugArray';
+function SmartImageArray(): Pointer; stdcall; external libSmart name 'std_getImageArray';
+function SmartDebugArray(): Pointer; stdcall; external libSmart name 'std_getDebugArray';
 function SmartGetRefresh(): integer; stdcall; external libSmart name 'std_getRefresh';
-procedure SmartSetRefresh(x: integer); stdcall; external libSmart name 'std_setRefresh';
+procedure SmartSetRefresh(x: LongInt); stdcall; external libSmart name 'std_setRefresh';
 procedure SmartSetTransparentColor(color: integer); stdcall; external libSmart name 'std_setTransparentColor';
 procedure SmartSetDebug(enabled: boolean); stdcall; external libSmart name 'std_setDebug';
 procedure SmartSetGraphics(enabled: boolean); stdcall; external libSmart name 'std_setGraphics';
-function SmartActive: boolean; stdcall; external libSmart name 'std_isActive';
-function SmartEnabled: boolean; stdcall; external libSmart name 'std_isBlocking';
-procedure SmartGetMousePos(var x, y: integer); stdcall; external libSmart name 'std_getMousePos';
-procedure SmartHoldMouse(x, y: integer; left: boolean); stdcall; external libSmart name 'std_holdMouse';
-procedure SmartReleaseMouse(x, y: integer; left: boolean); stdcall; external libSmart name 'std_releaseMouse';
-procedure SmartMoveMouse(x, y: integer); stdcall; external libSmart name 'std_moveMouse';
-procedure SmartWindMouse(x, y: integer); stdcall; external libSmart name 'std_windMouse';
-procedure SmartDragMouse(x, y: integer); stdcall; external libSmart name 'std_dragMouse';
-procedure SmartClickMouse(x, y: integer; left: boolean); stdcall; external libSmart name 'std_clickMouse';
-procedure SmartSendKeys(Text: string); stdcall; external libSmart name 'std_sendKeys';
-procedure SmartHoldKey(Code: Integer); stdcall; external libSmart name 'std_holdKey';
-procedure SmartReleaseKey(Code: Integer); stdcall; external libSmart name 'std_releaseKey';
-function SmartIsKeyDown(Code: Integer): Boolean; stdcall; external libSmart name 'std_isKeyDown';
+function SmartActive(): boolean; stdcall; external libSmart name 'std_isActive';
+function SmartEnabled(): boolean; stdcall; external libSmart name 'std_isBlocking';
+procedure SmartGetMousePos(var x, y: LongInt); stdcall; external libSmart name 'std_getMousePos';
+procedure SmartHoldMouse(x, y: LongInt; left: boolean); stdcall; external libSmart name 'std_holdMouse';
+procedure SmartReleaseMouse(x, y: LongInt; left: boolean); stdcall; external libSmart name 'std_releaseMouse';
+procedure SmartMoveMouse(x, y: LongInt); stdcall; external libSmart name 'std_moveMouse';
+procedure SmartWindMouse(x, y: LongInt); stdcall; external libSmart name 'std_windMouse';
+procedure SmartDragMouse(x, y: LongInt); stdcall; external libSmart name 'std_dragMouse';
+procedure SmartClickMouse(x, y: LongInt; left: boolean); stdcall; external libSmart name 'std_clickMouse';
+procedure SmartSendKeys(Text: PChar); stdcall; external libSmart name 'std_sendKeys';
+procedure SmartHoldKey(Code: LongInt); stdcall; external libSmart name 'std_holdKey';
+procedure SmartReleaseKey(Code: LongInt); stdcall; external libSmart name 'std_releaseKey';
+function SmartIsKeyDown(Code: LongInt): Boolean; stdcall; external libSmart name 'std_isKeyDown';
 function SmartGetColor(x, y: integer): integer; stdcall; external libSmart name 'std_getColor';
 function SmartFindColor(var x, y: integer; color, sx, sy, ex, ey: integer): boolean; stdcall; external libSmart name 'std_findColor';
 function SmartFindColorTolerance(var x, y: integer; color, sx, sy, ex, ey, tol: integer): boolean; stdcall; external libSmart name 'std_findColorTol';
