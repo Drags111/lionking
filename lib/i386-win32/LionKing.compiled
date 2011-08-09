@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="c:\lazarus\fpc\2.4.3\bin\i386-win32\fpc.exe" Date="1051467285"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gl -vewnhi -l -FiC:\Users\Justin\Desktop\lionking\lib\i386-win32 -FuC:\Users\Justin\Desktop\lionking\ -FUC:\Users\Justin\Desktop\lionking\lib\i386-win32\ LionKing.lpr"/>
+</CONFIG>
